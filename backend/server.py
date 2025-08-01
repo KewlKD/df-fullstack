@@ -31,6 +31,19 @@ cursor = conn.cursor()
 #conn.commit()
 
 
+@app.route('/users', methods=['GET'])
+def get_users():
+    try:
+        cursor.execute("SELECT name, email FROM users")
+        rows = cursor.fetchall()
+
+        users = [{"name": row[0], "email": row[1]} for row in rows]
+        return jsonify(users), 200
+    except Exception as e:
+        print("Error fetching users:", e)
+        return jsonify({"error": "Unable to fetch users"}), 500
+
+
 @app.route('/submit', methods=['POST'])
 def submit():
     data = request.get_json()
