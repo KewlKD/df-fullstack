@@ -31,6 +31,11 @@ cursor = conn.cursor()
 #conn.commit()
 
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({'status': 'ok', 'message': 'Server is operational'}), 200
+
+
 @app.route('/users', methods=['GET'])
 def get_users():
     try:
