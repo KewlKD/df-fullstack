@@ -21,14 +21,14 @@ conn = psycopg2.connect(
 cursor = conn.cursor()
 
 # Create table (run once)
-# cursor.execute("""
-# CREATE TABLE IF NOT EXISTS users (
-   # id SERIAL PRIMARY KEY,
-    #name TEXT,
-    #email TEXT
-#)
-#""")
-#conn.commit()
+cursor.execute("""
+ CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    name TEXT,
+    email TEXT
+)
+""")
+conn.commit()
 
 
 @app.route('/health', methods=['GET'])
