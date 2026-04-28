@@ -58,7 +58,7 @@ def submit():
     cursor.execute("INSERT INTO users (name, email) VALUES (%s, %s)", (name, email))
     conn.commit()
     
-    return jsonify({'message': 'Data inserted successfully'}), 201
+    return jsonify({'message': 'Data inserted'}), 201
 
 if __name__ == '__main__':
     app.run(debug=True)
