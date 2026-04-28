@@ -12,7 +12,7 @@ CORS(app)
 
 # Connect to PostgreSQL
 conn = psycopg2.connect(
-     dbname=os.getenv("PG_DBNAME"),
+    dbname=os.getenv("PG_DBNAME"),
     user=os.getenv("PG_USER"),
     password=os.getenv("PG_PASS"),
     host=os.getenv("PG_HOST"),
